@@ -4,7 +4,7 @@ var Result 		= require('../models/resultModel');
 var TBP			= require('../models/toBeProcessedModel');
 //welcome message
 router.get('/', function(req, res) {
-  res.send('welcome to books home page');
+  res.send('welcome to twitter demographics home page');
 });
 
 //get results
@@ -25,7 +25,7 @@ router.get('/getResult/:Id',function(req,res){
 router.put('/tbp/:Id',function(req,res){
 	var twitterId = req.params.Id;
 	var emailId = req.body.emailId;
-		
+
 	TBP.findOneAndUpdate({_id:twitterId},
 		{'$addToSet':{
         	emailIds: emailId
